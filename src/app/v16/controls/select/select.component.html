@@ -1,0 +1,10 @@
+<div class="v16-control-container">
+  <tui-select
+    [formControl]="value"
+    [tuiTextfieldLabelOutside]="true"
+    [tuiTextfieldCleaner]="cleaner"
+  >
+    {{ placeHolder }}
+    <tui-data-list-wrapper *tuiDataList [items]="items"></tui-data-list-wrapper>
+  </tui-select>
+</div>

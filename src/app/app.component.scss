@@ -1,0 +1,79 @@
+.container {
+  width: 200px;
+  margin: 100px auto;
+  overflow: hidden;
+}
+//----------------------------------
+::ng-deep {
+  .v16-control-container {
+    height: 34px;
+    border: 1px solid #e6e8eb;
+    border-radius: 4px;
+    overflow: hidden;
+    tui-select,
+    tui-input {
+      height: inherit;
+      margin: 0;
+      tui-hosted-dropdown {
+        height: inherit;
+        tui-primitive-textfield {
+          height: inherit;
+          --tui-height: unset !important;
+          font-size: 12px !important;
+          line-height: 22px !important;
+          .t-placeholder {
+            font-size: 12px !important;
+            color: #a4a5b1;
+          }
+          [tuiWrapper] {
+            color: #031d3b;
+            box-shadow: none;
+            &:hover {
+              box-shadow: none !important;
+            }
+            &::after {
+              border: none;
+            }
+            .t-content,
+            input,
+            .t-input {
+              padding: 0 12px !important;
+            }
+          }
+        }
+      }
+    }
+  }
+  app-text-search {
+    .v16-control-container {
+      .text-search-wrapper {
+        display: flex;
+        align-items: center;
+        height: inherit;
+        justify-content: stretch;
+        > tui-input {
+          flex: 1;
+        }
+        .text-search-btn {
+          width: 34px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: inherit;
+          em {
+            cursor: pointer;
+            font-size: 12px;
+            line-height: 1;
+            color: #0a73f0;
+          }
+        }
+        [tuiWrapper] {
+          .t-content {
+            padding-right: 0 !important;
+          }
+        }
+      }
+    }
+  }
+}
+//-----------------------------------

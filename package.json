@@ -11,22 +11,26 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~11.2.14",
-    "@angular/common": "~11.2.14",
-    "@angular/compiler": "~11.2.14",
-    "@angular/core": "~11.2.14",
-    "@angular/forms": "~11.2.14",
-    "@angular/platform-browser": "~11.2.14",
-    "@angular/platform-browser-dynamic": "~11.2.14",
-    "@angular/router": "~11.2.14",
-    "rxjs": "~6.6.0",
+    "@angular/animations": "^16.0.4",
+    "@angular/common": "^16.0.4",
+    "@angular/compiler": "^16.0.4",
+    "@angular/core": "^16.0.4",
+    "@angular/forms": "^16.0.4",
+    "@angular/platform-browser": "^16.0.4",
+    "@angular/platform-browser-dynamic": "^16.0.4",
+    "@angular/router": "^16.0.4",
+    "@taiga-ui/cdk": "3.29.2",
+    "@taiga-ui/core": "3.29.2",
+    "@taiga-ui/icons": "3.29.2",
+    "@taiga-ui/kit": "3.29.2",
+    "rxjs": "^7.8.1",
     "tslib": "^2.0.0",
-    "zone.js": "~0.11.3"
+    "zone.js": "~0.13.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.1102.18",
-    "@angular/cli": "~11.2.19",
-    "@angular/compiler-cli": "~11.2.14",
+    "@angular-devkit/build-angular": "16.0.4",
+    "@angular/cli": "^16.0.4",
+    "@angular/compiler-cli": "^16.0.4",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
@@ -40,6 +44,6 @@
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
-    "typescript": "~4.1.5"
+    "typescript": "~4.9.5"
   }
 }
