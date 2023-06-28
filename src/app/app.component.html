@@ -1,17 +1,22 @@
 <tui-root>
   <div class="container">
-    <app-select
-      [cleaner]="true"
-      [formControl]="testValue"
-      [items]="items"
-      [placeHolder]="'Trạng thái sự kiện'"
-    ></app-select>
-  </div>
-  <div class="container">
-    <app-text-search
-      [placeHolder]="'Tìm kiếm sự kiện'"
-      [formControl]="searchValue"
-      [cleaner]="true"
-    ></app-text-search>
+    <div class="control-container">
+      <div class="control-wraprer">
+        <app-text-search
+          [placeHolder]="'Tìm kiếm sự kiện'"
+          [(ngModel)]="value"
+          [cleaner]="true"
+        ></app-text-search>
+      </div>
+      <div class="control-wraprer">
+        <app-select
+          [cleaner]="true"
+          [formControl]="testValue"
+          [items]="items"
+          [placeHolder]="'Trạng thái sự kiện'"
+        ></app-select>
+      </div>
+    </div>
+    <div class="action-container"><button (click)="submit()">them</button></div>
   </div>
 </tui-root>

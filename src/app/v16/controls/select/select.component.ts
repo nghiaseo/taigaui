@@ -1,6 +1,5 @@
-import { Component, forwardRef, Input, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { TuiSelectComponent } from '@taiga-ui/kit';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -11,7 +10,8 @@ import { Subscription } from 'rxjs';
     provide: NG_VALUE_ACCESSOR,
     useExisting: forwardRef(() => SelectComponent),
     multi: true
-  }]
+  }],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SelectComponent implements ControlValueAccessor {
   @Input() placeHolder = ''
@@ -45,5 +45,8 @@ export class SelectComponent implements ControlValueAccessor {
   setDisabledState(isDisabled: boolean) {
     if (isDisabled) this.value.disable()
     else this.value.enable()
+  }
+  getValueToDisplay(item) {
+    return item.text || item.name
   }
 }

@@ -1,7 +1,26 @@
 .container {
-  width: 200px;
+  width: 1020px;
   margin: 100px auto;
   overflow: hidden;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+
+  .control-container {
+    display: flex;
+    justify-content: start;
+    gap: 12px;
+  }
+  .control-wraprer {
+    min-width: 180px;
+    &:has(app-text-search) {
+      width: 200px;
+    }
+  }
+  .action-container {
+    flex-basis: 105px;
+  }
 }
 //----------------------------------
 ::ng-deep {
