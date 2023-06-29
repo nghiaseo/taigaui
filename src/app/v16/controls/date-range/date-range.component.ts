@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output, ViewChild, forwardRef } from '@
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { TuiDay, TuiDayRange } from '@taiga-ui/cdk';
 import { Subscription } from 'rxjs';
+import { DayRange } from '../../interfaces/DayRange';
 
 @Component({
   selector: 'app-date-range',
@@ -15,12 +16,9 @@ import { Subscription } from 'rxjs';
 })
 export class DateRangeComponent implements ControlValueAccessor {
   @ViewChild('rangePicker') rangePicker;
-  @Input() value
   @Input() placeholder = ''
   @Output() dateSelected = new EventEmitter()
   readonly control = new FormControl();
-  readonly min
-  readonly max
   onChange: (data: any) => void
   onTouched: () => void;
   isDisabled: boolean;
@@ -28,10 +26,15 @@ export class DateRangeComponent implements ControlValueAccessor {
   nativeInput: HTMLInputElement
   range = [{ range: new TuiDayRange(new TuiDay(1970, 0, 1), new TuiDay(2122, 0, 1)), name: 'tmp range' }]
   ngOnInit() {
-    this.subc = this.control.valueChanges.subscribe((rangeSelected) => {
-      console.log(rangeSelected)
+    this.subc = this.control.valueChanges.subscribe((rangeSelected: TuiDayRange) => {
       if (this.onTouched) this.onTouched()
-      if (this.onChange) this.onChange(rangeSelected)
+      if (this.onChange)
+        if (rangeSelected) {
+          const from = new Date(rangeSelected.from.year, rangeSelected.from.month, rangeSelected.from.day)
+          const to = new Date(rangeSelected.to.year, rangeSelected.to.month, rangeSelected.to.day)
+          this.onChange({ from, to })
+        }
+        else this.onChange(null)
     });
   }
   keyUpEnterHandle = (e: KeyboardEvent) => {
@@ -43,19 +46,13 @@ export class DateRangeComponent implements ControlValueAccessor {
     this.nativeInput = this.rangePicker.nativeFocusableElement
     this.nativeInput.addEventListener('keyup', this.keyUpEnterHandle, false)
   }
-  ngOnChanges() {
-    if (!this.value) return
-    const from = this.convertToTuiDay(new Date(this.value.from))
-    const to = this.convertToTuiDay(new Date(this.value.to))
-    const range = new TuiDayRange(from, to)
-    this.control.setValue(range)
-  }
 
   ngOnDestroy() {
     this.subc.unsubscribe()
   }
-  writeValue(obj: any): void {
-    this.control.setValue(obj)
+  writeValue(obj: DayRange): void {
+    const range: TuiDayRange = new TuiDayRange(this.convertToTuiDay(obj.from), this.convertToTuiDay(obj.to))
+    this.control.setValue(range)
   }
   registerOnChange(fn: any): void {
     this.onChange = fn
