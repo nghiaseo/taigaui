@@ -11,7 +11,6 @@ import { Subscription } from 'rxjs';
     useExisting: forwardRef(() => SelectComponent),
     multi: true
   }],
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SelectComponent implements ControlValueAccessor {
   @Input() placeHolder = ''
@@ -21,7 +20,6 @@ export class SelectComponent implements ControlValueAccessor {
   onChange: (data: any) => void
   onTouched: () => void;
   isDisabled: boolean;
-  cleanerElement: Element
   subs: Subscription
   value = new FormControl();
   ngAfterViewInit() {

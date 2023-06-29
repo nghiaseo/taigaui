@@ -1,0 +1,13 @@
+<div class="v16-control-container">
+  <tui-input-date-range
+    #rangePicker
+    [items]="range"
+    [tuiTextfieldLabelOutside]="true"
+    [formControl]="control"
+    [min]="min"
+    [max]="max"
+  >
+    {{ placeholder }}
+    <input tuiTextfield placeholder="dd.mm.yyyy - dd.mm.yyyy" />
+  </tui-input-date-range>
+</div>
