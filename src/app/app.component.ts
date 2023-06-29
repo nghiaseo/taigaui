@@ -10,18 +10,19 @@ export class AppComponent {
   title = 'taigaui';
   testValue = new FormControl()
   searchValue = new FormControl()
-  value = ''
-  items = [{ id: 0, text: 'Luke Skywalker Luke Skywalker Luke Skywalker' },
-  { id: 1, name: 'Leia Organa Solo' },
-  { id: 2, text: 'Darth Vader' },
-  { id: 3, text: 'Han Solo' },
-  { id: 4, text: 'Obi-Wan Kenobi' },
-  { id: 5, text: 'Yoda' },
+  value
+  items = ['Luke Skywalker Luke Skywalker Luke Skywalker',
+    { id: 1, abc: 'Leia Organa Solo' },
+    { id: 2, text: 'Darth Vader' },
+    { id: 3, text: 'Han Solo' },
+    { id: 4, text: 'Obi-Wan Kenobi' },
+    { id: 5, text: 'Yoda' },
   ];
   ngOnInit() {
     this.searchValue.valueChanges.subscribe(e => console.log(e))
   }
   submit() {
-    console.log(this.value)
+    this.value = { id: 2, text: 'Darth Vader' },
+      console.log(this.value)
   }
 }

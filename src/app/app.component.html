@@ -1,17 +1,18 @@
 <tui-root>
   <div class="container">
     <div class="control-container">
-      <div class="control-wraprer">
+      <!-- <div class="control-wraprer">
         <app-text-search
           [placeHolder]="'Tìm kiếm sự kiện'"
           [(ngModel)]="value"
           [cleaner]="true"
         ></app-text-search>
-      </div>
+      </div> -->
       <div class="control-wraprer">
         <app-select
+          [display]="'abc'"
           [cleaner]="true"
-          [formControl]="testValue"
+          [(ngModel)]="value"
           [items]="items"
           [placeHolder]="'Trạng thái sự kiện'"
         ></app-select>

@@ -15,8 +15,9 @@ import { Subscription } from 'rxjs';
 })
 export class SelectComponent implements ControlValueAccessor {
   @Input() placeHolder = ''
-  @Input() items = []
+  @Input() items = [] //danh sach doi tuong
   @Input() cleaner = false
+  @Input() display = ''//ten thuoc tinh hien thi tren select
   onChange: (data: any) => void
   onTouched: () => void;
   isDisabled: boolean;
@@ -24,7 +25,6 @@ export class SelectComponent implements ControlValueAccessor {
   subs: Subscription
   value = new FormControl();
   ngAfterViewInit() {
-
     this.subs = this.value.valueChanges.subscribe(valueSelected => {
       this.onTouched()
       this.onChange(valueSelected)
@@ -46,7 +46,5 @@ export class SelectComponent implements ControlValueAccessor {
     if (isDisabled) this.value.disable()
     else this.value.enable()
   }
-  getValueToDisplay(item) {
-    return item.text || item.name
-  }
+  getValueToDisplay = (item) => (typeof item == 'object') ? (item[this.display] || item.text || item.name) : item
 }

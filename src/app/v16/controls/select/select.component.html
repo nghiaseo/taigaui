@@ -13,4 +13,6 @@
     ></tui-data-list-wrapper>
   </tui-select>
 </div>
-<ng-template #content let-data>{{ data.text || data.name }}</ng-template>
+<ng-template #content let-data>{{
+  data[display] || data.text || data.name || data
+}}</ng-template>
