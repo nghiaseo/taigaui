@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { TuiDayRange, TuiDay } from '@taiga-ui/cdk';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ export class AppComponent {
   title = 'taigaui';
   testValue = new FormControl()
   searchValue = new FormControl()
-  value
+  value = new FormControl(new TuiDayRange(new TuiDay(2023, 5, 10), new TuiDay(2023, 5, 30)))
   items = ['Luke Skywalker Luke Skywalker Luke Skywalker',
     { id: 1, abc: 'Leia Organa Solo' },
     { id: 2, text: 'Darth Vader' },
@@ -19,10 +20,11 @@ export class AppComponent {
     { id: 5, text: 'Yoda' },
   ];
   ngOnInit() {
-    this.searchValue.valueChanges.subscribe(e => console.log(e))
+    console.log(this.value.touched)
   }
   submit() {
-    this.value = { id: 2, text: 'Darth Vader' },
-      console.log(this.value)
+    // this.value.disable()
+    console.log(this.value.value)
+
   }
 }

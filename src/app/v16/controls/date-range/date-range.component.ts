@@ -30,9 +30,8 @@ export class DateRangeComponent implements ControlValueAccessor {
   ngOnInit() {
     this.subc = this.control.valueChanges.subscribe((rangeSelected) => {
       console.log(rangeSelected)
-      // this.dateSelected.emit(this.control.value);
-      // this.onTouched()
-      // this.onChange(rangeSelected)
+      if (this.onTouched) this.onTouched()
+      if (this.onChange) this.onChange(rangeSelected)
     });
   }
   keyUpEnterHandle = (e: KeyboardEvent) => {
