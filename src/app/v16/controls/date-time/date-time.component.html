@@ -1,0 +1,22 @@
+<div class="v16-control-container">
+  <div class="date-time-wrapper">
+    <div class="time-wrapper">
+      <tui-input-time
+        [tuiTextfieldLabelOutside]="true"
+        [formControl]="timeValue"
+        [mode]="timeMode"
+      >
+        {{ timeMode }}
+      </tui-input-time>
+    </div>
+    <span>-</span>
+    <div class="date-wrapper">
+      <tui-input-date
+        [tuiTextfieldLabelOutside]="true"
+        [formControl]="dateValue"
+      >
+        {{ "DD/MM/YYYY" }}
+      </tui-input-date>
+    </div>
+  </div>
+</div>

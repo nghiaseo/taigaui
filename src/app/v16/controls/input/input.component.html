@@ -1,0 +1,16 @@
+<div class="v16-control-container">
+  <div class="input-text-wrapper">
+    <div class="input-text-label">
+      <span [ngClass]="required ? 'text-required' : ''">{{ label }}</span>
+    </div>
+    <div class="input-text-input">
+      <tui-input
+        [tuiTextfieldLabelOutside]="true"
+        [formControl]="value"
+        [tuiTextfieldCleaner]="cleaner"
+      >
+        {{ placeHolder }}</tui-input
+      >
+    </div>
+  </div>
+</div>

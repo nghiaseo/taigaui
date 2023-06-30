@@ -1,14 +1,14 @@
 <tui-root>
   <div class="container">
     <div class="control-container">
-      <div class="control-wraprer">
+      <!-- <div class="control-wraprer">
         <app-text-search
           [placeHolder]="'Tìm kiếm sự kiện'"
-          [(ngModel)]="value"
+          [(ngModel)]="title"
           [cleaner]="true"
         ></app-text-search>
-      </div>
-      <div class="control-wraprer">
+      </div>     -->
+      <!-- <div class="control-wraprer">
         <app-select
           [display]="'abc'"
           [cleaner]="true"
@@ -16,17 +16,27 @@
           [items]="items"
           [placeHolder]="'Trạng thái sự kiện'"
         ></app-select>
-      </div>
-      <div class="control-wraprer">
+      </div> -->
+      <!-- <div class="control-wraprer">
         <app-date-range
           [placeholder]="'Lọc theo ngày'"
           [formControl]="value"
         ></app-date-range>
-      </div>
-      <div class="control-wraprer">
-        <app-combobox></app-combobox>
-      </div>
+      </div> -->
+      <!-- <div class="control-wraprer">
+        <app-combobox
+          [cleaner]="true"
+          [placeholder]="'Chuyên mục'"
+          [items]="items"
+          [display]="'text'"
+          [(ngModel)]="value"
+          [disabled]="true"
+        ></app-combobox>
+      </div> -->
     </div>
     <div class="action-container"><button (click)="submit()">them</button></div>
+  </div>
+  <div class="time-wrapper">
+    <app-date-time [(ngModel)]="value"></app-date-time>
   </div>
 </tui-root>

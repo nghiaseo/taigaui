@@ -6,7 +6,6 @@
     [tuiTextfieldCleaner]="cleaner"
   >
     {{ placeholder }}
-    <input tuiTextfield placeholder="Type a name" />
     <tui-data-list-wrapper
       *tuiDataList
       [items]="items | tuiFilterByInputWith : stringify"
