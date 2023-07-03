@@ -2,17 +2,19 @@ import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { DayRange } from './v16/interfaces/DayRange';
 import { DateTime } from './v16/interfaces/DateTime';
+import { HttpClient, HttpEvent, HttpEventType } from '@angular/common/http';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  constructor(private http: HttpClient) { }
   title = 'taigaui';
-  testValue = new FormControl()
-  searchValue = new FormControl()
-  dayRange: DayRange = { from: new Date(), to: new Date() }
-  value = new Date()
+  search = ''
+  status = new FormControl()
+  dayRange = new FormControl({ from: new Date(), to: new Date() })
+  article = new FormControl()
 
   items = [{ id: 0, text: 'Luke Skywalker' },
   { id: 1, text: 'Leia Organa Solo' },
@@ -22,10 +24,8 @@ export class AppComponent {
   { id: 5, text: 'Yoda' },
   ];
   ngOnInit() {
-    // console.log(this.value.touched)
   }
   submit() {
-    console.log(this.value)
 
 
   }

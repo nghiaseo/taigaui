@@ -1,6 +1,10 @@
 .container {
   width: 1020px;
   margin: 100px auto;
+  background-color: #fff;
+  border-radius: 4px;
+}
+.container-head {
   overflow: hidden;
   padding: 10px 15px;
   box-sizing: border-box;
@@ -17,7 +21,26 @@
     height: 34px;
   }
   .action-container {
-    flex-basis: 105px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    > button {
+      width: 105px;
+      height: 100%;
+      border: none;
+      border-radius: 4px;
+      background-color: #0a73f0;
+      color: #fff;
+      font-size: 12px;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.8;
+      }
+
+      > em {
+        padding-right: 6px;
+      }
+    }
   }
 }
 .text-wrapper {
@@ -32,138 +55,142 @@
 }
 //----------------------------------
 ::ng-deep {
-  .v16-control-container {
-    display: flex;
-    height: 100%;
-    border: 1px solid #e6e8eb;
-    border-radius: 4px;
-    overflow: hidden;
-    box-sizing: border-box;
-    > * {
-      flex: 1;
-    }
-    tui-select,
-    tui-input,
-    tui-input-date-range,
-    tui-combo-box,
-    tui-input-time,
-    tui-input-date {
+  .taiga-theme-1 {
+    .v16-control-container {
+      display: flex;
       height: 100%;
-      margin: 0;
-      tui-hosted-dropdown {
+      border: 1px solid #e6e8eb;
+      border-radius: 4px;
+      overflow: hidden;
+      box-sizing: border-box;
+      > * {
+        flex: 1;
+      }
+      tui-select,
+      tui-input,
+      tui-input-date-range,
+      tui-combo-box,
+      tui-input-time,
+      tui-input-date {
         height: 100%;
-        .t-wrapper {
-          border-radius: 0;
-          tui-primitive-textfield {
-            height: 100%;
-            --tui-height: unset !important;
-            font-size: 12px !important;
-            line-height: 22px !important;
-            .t-placeholder {
+        margin: 0;
+        tui-hosted-dropdown {
+          height: 100%;
+          .t-wrapper {
+            border-radius: 0;
+            tui-primitive-textfield {
+              height: 100%;
+              --tui-height: unset !important;
               font-size: 12px !important;
-              color: #a4a5b1;
-            }
-            [tuiWrapper] {
-              color: #031d3b;
-              box-shadow: none;
-              &:hover {
-                box-shadow: none !important;
+              line-height: 22px !important;
+              .t-placeholder {
+                font-size: 12px !important;
+                color: #a4a5b1;
               }
-              &::after {
-                border: none;
-              }
-              .t-content,
-              input,
-              .t-input {
-                padding: 0 12px !important;
-                tui-value-decoration {
-                  line-height: 0;
-                  .t-filler {
-                    text-transform: uppercase;
+              [tuiWrapper] {
+                color: #031d3b;
+                box-shadow: none;
+                &:hover {
+                  box-shadow: none !important;
+                }
+                &::after {
+                  border: none;
+                }
+                .t-content,
+                input,
+                .t-input {
+                  padding: 0 12px !important;
+                  tui-value-decoration {
+                    line-height: 0;
+                    .t-filler {
+                      text-transform: uppercase;
+                    }
                   }
                 }
-              }
-              &[data-appearance="icon"]:not(.t-cleaner) {
-                opacity: 1;
-                color: #0a73f0;
+                &[data-appearance="icon"]:not(.t-cleaner) {
+                  opacity: 1;
+                  color: #0a73f0;
+                }
               }
             }
           }
         }
       }
     }
-  }
-  app-text-search {
-    .v16-control-container {
-      .text-search-wrapper {
-        display: flex;
-        align-items: center;
-        height: 100%;
-        justify-content: stretch;
-        > tui-input {
-          flex: 1;
-        }
-        .text-search-btn {
-          width: 34px;
+    app-text-search {
+      .v16-control-container {
+        .text-search-wrapper {
           display: flex;
-          justify-content: center;
           align-items: center;
           height: 100%;
-          em {
-            cursor: pointer;
-            font-size: 12px;
-            line-height: 1;
-            color: #0a73f0;
+          justify-content: stretch;
+          > tui-input {
+            flex: 1;
+            tui-primitive-textfield {
+              [tuiWrapper] {
+                .t-content {
+                  padding-right: 0 !important;
+                }
+              }
+            }
           }
-        }
-        [tuiWrapper] {
-          .t-content {
-            padding-right: 0 !important;
+          .text-search-btn {
+            width: 34px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            em {
+              cursor: pointer;
+              font-size: 16px;
+              line-height: 1;
+              color: #0a73f0;
+            }
           }
         }
       }
     }
-  }
-  tui-calendar-range {
-    .t-menu {
-      display: none;
+    tui-calendar-range {
+      .t-menu {
+        display: none;
+      }
     }
-  }
-  app-input {
-    .v16-control-container {
-      padding: 12px 16px;
-      border-radius: 8px;
-      .input-text-wrapper {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-        .input-text-label {
-          line-height: 18px;
-          font-size: 12px;
-          span {
-            color: #4f6176;
-            font-weight: 700;
+    app-input {
+      .v16-control-container {
+        padding: 12px 16px;
+        border-radius: 8px;
+        .input-text-wrapper {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+          .input-text-label {
+            line-height: 18px;
+            font-size: 12px;
+            span {
+              color: #4f6176;
+              font-weight: 700;
 
-            &.text-required {
-              &::after {
-                content: "*";
-                color: #fd4a1e;
-                padding-left: 2px;
+              &.text-required {
+                &::after {
+                  content: "*";
+                  color: #fd4a1e;
+                  padding-left: 2px;
+                }
               }
             }
           }
-        }
-        .input-text-input {
-          flex: 1;
-          tui-input {
-            tui-hosted-dropdown {
-              tui-primitive-textfield {
-                font-size: 14px !important;
-                [tuiWrapper] {
-                  input,
-                  .t-content {
-                    padding: 0 !important;
+          .input-text-input {
+            flex: 1;
+            tui-input {
+              tui-hosted-dropdown {
+                tui-primitive-textfield {
+                  font-size: 14px !important;
+                  [tuiWrapper] {
+                    input,
+                    .t-content {
+                      padding: 0 !important;
+                    }
                   }
                 }
               }
@@ -172,58 +199,58 @@
         }
       }
     }
-  }
-  app-date-time {
-    .v16-control-container {
-      border-radius: 8px;
-      .date-time-wrapper {
-        display: flex;
-        padding: 12px 16px;
-        font-size: 14px;
-        > span {
-          line-height: 18px;
-          padding: 0 10px;
-        }
-        .time-wrapper {
-          flex: 1 0 60px;
-          tui-primitive-textfield {
-            font-size: 14px !important;
-            [tuiWrapper] {
-              .t-filler {
-                opacity: 0;
-              }
-              input {
-                border-right: none;
-              }
-              .t-content,
-              input {
-                padding: 0 !important;
-                text-align: right;
-              }
+    app-date-time {
+      .v16-control-container {
+        border-radius: 8px;
+        .date-time-wrapper {
+          display: flex;
+          padding: 12px 16px;
+          font-size: 14px;
+          > span {
+            line-height: 18px;
+            padding: 0 10px;
+          }
+          .time-wrapper {
+            flex: 1 0 60px;
+            tui-primitive-textfield {
+              font-size: 14px !important;
+              [tuiWrapper] {
+                .t-filler {
+                  opacity: 0;
+                }
+                input {
+                  border-right: none;
+                }
+                .t-content,
+                input {
+                  padding: 0 !important;
+                  text-align: right;
+                }
 
-              .t-icon {
-                width: 0;
-                overflow: hidden;
+                .t-icon {
+                  width: 0;
+                  overflow: hidden;
+                }
               }
             }
           }
-        }
-        .date-wrapper {
-          flex: 2;
-          flex-basis: 200px;
-          tui-primitive-textfield {
-            font-size: 14px !important;
-            [tuiWrapper] {
-              .t-filler {
-                opacity: 0;
-              }
-              input {
-                border-right: none;
-              }
-              .t-content,
-              input {
-                padding: 0 !important;
-                overflow: visible;
+          .date-wrapper {
+            flex: 2;
+            flex-basis: 200px;
+            tui-primitive-textfield {
+              font-size: 14px !important;
+              [tuiWrapper] {
+                .t-filler {
+                  opacity: 0;
+                }
+                input {
+                  border-right: none;
+                }
+                .t-content,
+                input {
+                  padding: 0 !important;
+                  overflow: visible;
+                }
               }
             }
           }

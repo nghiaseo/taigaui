@@ -16,7 +16,7 @@ import { DateTime } from '../../interfaces/DateTime';
   }, { provide: TUI_DATE_SEPARATOR, useValue: '/' },]
 })
 export class DateTimeComponent implements ControlValueAccessor {
-  @Input() timeMode = "HH:MM:SS"
+  @Input() timeMode = "HH:MM"
   @Input() cleaner = false
   @Input() label = ''
   @Input() required = false
