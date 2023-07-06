@@ -5,14 +5,13 @@
         <div class="control-wraprer">
           <app-text-search
             [placeHolder]="'Tìm kiếm sự kiện'"
-            [(ngModel)]="search"
             [cleaner]="true"
           ></app-text-search>
         </div>
         <div class="control-wraprer">
           <app-select
             [cleaner]="true"
-            [formControl]="status"
+            [(ngModel)]="search"
             [items]="items"
             [placeHolder]="'Trạng thái sự kiện'"
           ></app-select>
@@ -39,4 +38,6 @@
       </div>
     </div>
   </div>
+  <div><app-input [formControl]="input"></app-input></div>
+  <div><app-date-time></app-date-time></div>
 </tui-root>

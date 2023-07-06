@@ -3,12 +3,14 @@
     [tuiTextfieldLabelOutside]="true"
     [stringify]="stringify"
     [formControl]="value"
+    [(search)]="search"
+    (searchChange)="onSearch($event)"
     [tuiTextfieldCleaner]="cleaner"
   >
     {{ placeholder }}
     <tui-data-list-wrapper
       *tuiDataList
-      [items]="items | tuiFilterByInputWith : stringify"
+      [items]="items$ | async | tuiFilterByInputWith : stringify"
       [itemContent]="stringify | tuiStringifyContent"
     ></tui-data-list-wrapper>
   </tui-combo-box>
