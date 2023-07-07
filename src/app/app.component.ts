@@ -25,7 +25,7 @@ export class AppComponent {
   dayRange = new FormControl({ from: new Date(), to: new Date() })
   article = new FormControl()
   searchService = of(data).pipe(delay(1000))
-  items = []
+  items = data
   t: Date
   ngOnInit() {
 

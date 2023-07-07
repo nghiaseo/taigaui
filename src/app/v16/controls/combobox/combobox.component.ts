@@ -38,6 +38,7 @@ export class ComboboxComponent implements ControlValueAccessor {
     })
   }
   onSearch(e: string) {
+    if(!this.searchService) return
     if (!e) this.items$.next([])
     if (this.timeout) clearTimeout(this.timeout)
     if (e) {
@@ -45,7 +46,6 @@ export class ComboboxComponent implements ControlValueAccessor {
       this.timeout = setTimeout(() => {
         if (this.serviceSubs) this.serviceSubs.unsubscribe()
         this.serviceSubs = this.searchService.subscribe(res => {
-          console.log(res)
           this.items$.next(res)
         })
       }, 500)
